@@ -37,11 +37,13 @@ public class Main {
                     System.out.println("2. Bubble Sort");
                     System.out.println("3. Shell Sort");
                     System.out.println("4. Radix Sort")
-                    System.out.print("Enter your choice (1–4): ");
+                   
+System.out.println("5. Heap Sort")
+                    System.out.print("Enter your choice (1–5): ");
                     sortChoice = scanner.nextInt();
 
-                    if (sortChoice < 1 || sortChoice > 3) {
-                        System.out.println("Please enter a number between 1 and 4.");
+                    if (sortChoice < 1 || sortChoice > 5) {
+                        System.out.println("Please enter a number between 1 and 5.");
                     } else {
                         break;
                     }
@@ -63,7 +65,6 @@ public class Main {
                     break;
                 case 4:
                     new RadixSort().execute();
-                    break;    
             }
 
             // Step 3: Searching path
