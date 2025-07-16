@@ -36,11 +36,12 @@ public class Main {
                     System.out.println("1. Selection Sort");
                     System.out.println("2. Bubble Sort");
                     System.out.println("3. Shell Sort");
-                    System.out.print("Enter your choice (1–3): ");
+                    System.out.println("4. Heap Sort");
+                    System.out.print("Enter your choice (1–4): ");
                     sortChoice = scanner.nextInt();
 
-                    if (sortChoice < 1 || sortChoice > 3) {
-                        System.out.println("Please enter a number between 1 and 3.");
+                    if (sortChoice < 1 || sortChoice > 4) {
+                        System.out.println("Please enter a number between 1 and 4.");
                     } else {
                         break;
                     }
@@ -60,6 +61,9 @@ public class Main {
                 case 3:
                     new ShellSort().execute();
                     break;
+                case 4:
+                    new HeapSort().execute();
+                    break;
             }
 
             // Step 3: Searching path
@@ -73,7 +77,7 @@ public class Main {
                 try {
                     searchChoice = scanner.nextInt();
                     if (searchChoice == 1) {
-                        new BinarySearchRunner().execute();
+                        new BinarySearch().execute();
                         break;
                     } else {
                         System.out.print("Invalid input. Press 1 to continue: ");
