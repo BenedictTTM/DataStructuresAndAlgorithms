@@ -36,11 +36,12 @@ public class Main {
                     System.out.println("1. Selection Sort");
                     System.out.println("2. Bubble Sort");
                     System.out.println("3. Shell Sort");
-                    System.out.print("Enter your choice (1–3): ");
+                    System.out.println("4. Radix Sort")
+                    System.out.print("Enter your choice (1–4): ");
                     sortChoice = scanner.nextInt();
 
                     if (sortChoice < 1 || sortChoice > 3) {
-                        System.out.println("Please enter a number between 1 and 3.");
+                        System.out.println("Please enter a number between 1 and 4.");
                     } else {
                         break;
                     }
@@ -60,15 +61,30 @@ public class Main {
                 case 3:
                     new ShellSort().execute();
                     break;
+                case 4:
+                    new RadixSort().execute();
+                    break;    
             }
 
             // Step 3: Searching path
         } else if (categoryChoice == 2) {
             System.out.println("\nSearching Algorithms Available:");
-            System.out.println("1. Binary Search"); // Can be extended later
-            System.out.print("Press 1 to proceed: ");
+            System.out.println("1. Binary Search");
+            System.out.println("2. Linear Search");
+            System.out.print("Press 1 or 2 to proceed: ");
 
-            int searchChoice = -1;
+            if (searchChoice == 1) {
+                        new BinarySearchRunner().execute();
+                        break;
+                    } else if (searchChoice == 2) {
+                        new LinearSearchRunner().execute();
+                        break;
+                    } else {
+                        System.out.println("Please enter 1 or 2.");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.print("Invalid input. Try again: ");
+                    scanner.next();int searchChoice = -1;
             while (true) {
                 try {
                     searchChoice = scanner.nextInt();
