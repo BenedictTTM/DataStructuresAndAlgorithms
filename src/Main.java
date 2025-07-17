@@ -44,9 +44,18 @@ public class Main {
                     System.out.println("9. Insertion Sort");
 
                     System.out.print("Enter your choice (1-9): ");
+                    System.out.println("4. Radix Sort");
+                    System.out.println("5. Heap Sort");
+                    System.out.println("6. Quick Sort");
+                    System.out.println("7. Merge Sort");
+                    System.out.println("8. Counting Sort");
+                    System.out.println("9. Insertion Sort");
+
+                    System.out.print("Enter your choice (1-9): ");
                     sortChoice = scanner.nextInt();
 
                     if (sortChoice < 1 || sortChoice > 5) {
+                        System.out.println("Please enter a number between 1 and 9.");
                         System.out.println("Please enter a number between 1 and 9.");
                     } else {
                         break;
@@ -74,13 +83,13 @@ public class Main {
                     new HeapSort().execute();
                     break;
                 case 6:
-                    //new QuickSort().execute();
+                    new QuickSort().execute();
                     break;
                 case 7:
-                    //new MergeSort().execute();
+                    new MergeSort().execute();
                     break;
                 case 8:
-                    //new CountingSort().execute();
+                    new CountingSort().execute();
                     break;
                 case 9:
                     new InsertionSort().execute();
@@ -100,14 +109,23 @@ public class Main {
                     searchChoice = scanner.nextInt();
                      if (searchChoice == 1) {
                         new BinarySearch().execute();
+            
+            int searchChoice = -1;
+            while (true) {
+                try {
+                    searchChoice = scanner.nextInt();
+                     if (searchChoice == 1) {
+                        new BinarySearch().execute();
                         break;
                     } else if (searchChoice == 2) {
+                        new LinearSearch().execute();
                         new LinearSearch().execute();
                         break;
                     } else {
                         System.out.println("Please enter 1 or 2.");
                     }
                 } catch (InputMismatchException e) {
+                    System.out.print("Invalid input. Press 1 or 2 to continue: ");
                     System.out.print("Invalid input. Press 1 or 2 to continue: ");
                     scanner.next();
                 }
