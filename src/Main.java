@@ -54,7 +54,7 @@ public class Main {
                     System.out.print("Enter your choice (1-9): ");
                     sortChoice = scanner.nextInt();
 
-                    if (sortChoice < 1 || sortChoice > 5) {
+                    if (sortChoice < 1 || sortChoice > 9) {
                         System.out.println("Please enter a number between 1 and 9.");
                         System.out.println("Please enter a number between 1 and 9.");
                     } else {
@@ -77,26 +77,26 @@ public class Main {
                     new ShellSort().execute();
                     break;
                 case 4:
-                    new RadixSort().execute();
+                    //new RadixSort().execute();
                     break;
                 case 5:
                     new HeapSort().execute();
                     break;
                 case 6:
-                    new QuickSort().execute();
+                    //new QuickSort().execute();
                     break;
                 case 7:
-                    new MergeSort().execute();
+                    //new MergeSort().execute();
                     break;
                 case 8:
-                    new CountingSort().execute();
+                    //new CountingSort().execute();
                     break;
                 case 9:
                     new InsertionSort().execute();
                     break;
             }
 
-        // Step 3: Searching path
+            // Step 3: Searching path
         } else if (categoryChoice == 2) {
             System.out.println("\nSearching Algorithms Available:");
             System.out.println("1. Binary Search");
@@ -130,7 +130,6 @@ public class Main {
                     scanner.next();
                 }
             }
-
         }
 
         scanner.close();
