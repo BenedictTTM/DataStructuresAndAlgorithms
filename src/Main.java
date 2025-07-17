@@ -96,7 +96,7 @@ public class Main {
                     break;
             }
 
-            // Step 3: Searching path
+        // Step 3: Searching path
         } else if (categoryChoice == 2) {
             System.out.println("\nSearching Algorithms Available:");
             System.out.println("1. Binary Search");
@@ -130,6 +130,7 @@ public class Main {
                     scanner.next();
                 }
             }
+
         }
 
         scanner.close();
