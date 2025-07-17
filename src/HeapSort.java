@@ -58,7 +58,7 @@ public class HeapSort {
     }
 
     // Execute method to run the program
-    public static void execute() {
+    public void execute() {
         Scanner sc = new Scanner(System.in);
         int n = 0;
 
