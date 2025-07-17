@@ -68,7 +68,7 @@ public class Main {
                     new ShellSort().execute();
                     break;
                 case 4:
-                    //new RadixSort().execute();
+                    new RadixSort().execute();
                     break;
                 case 5:
                     new HeapSort().execute();
