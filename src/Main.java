@@ -77,7 +77,7 @@ public class Main {
                     //new QuickSort().execute();
                     break;
                 case 7:
-                    //new MergeSort().execute();
+                    new MergeSort().execute();
                     break;
                 case 8:
                     new CountingSort().execute();
