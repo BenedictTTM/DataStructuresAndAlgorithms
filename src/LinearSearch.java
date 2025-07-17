@@ -18,7 +18,7 @@ public class LinearSearch {
                     continue;
                 }
                 break;
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid integer.");
                 scanner.nextLine(); // Clear bad input
             }
