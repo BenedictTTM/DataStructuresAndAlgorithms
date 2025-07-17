@@ -1,9 +1,58 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class LinearSearch {
 
-    // ========= TEST METHOD =========
-    public static void testLinearSearch(int[] arr, int target) {
+
+    public void execute() {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input array size with validation
+        int n = 0;
+        while (true) {
+            try {
+                System.out.print("Enter number of elements: ");
+                n = scanner.nextInt();
+                if (n <= 0) {
+                    System.out.println("Please enter a positive integer.");
+                    continue;
+                }
+                break;
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scanner.nextLine(); // Clear bad input
+            }
+        }
+
+        // Create array and input elements with validation
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            while (true) {
+                try {
+                    System.out.print("Element " + (i + 1) + ": ");
+                    arr[i] = scanner.nextInt();
+                    break;
+                } catch (Exception e) {
+                    System.out.println("Invalid input. Please enter an integer.");
+                    scanner.nextLine(); // Clear bad input
+                }
+            }
+        }
+
+        // Input target value with validation
+        int target = 0;
+        while (true) {
+            try {
+                System.out.print("Enter target value to search for: ");
+                target = scanner.nextInt();
+                break;
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter an integer.");
+                scanner.nextLine(); // Clear bad input
+            }
+        }
+
+        // Perform linear search
         System.out.println("\nLinear Search Flowchart:");
         printLinearSearchFlowchart();
 
@@ -16,6 +65,8 @@ public class LinearSearch {
             System.out.println("Target " + target + " not found.");
 
         System.out.println("\nAlgorithm Analysis:\nTime Complexity: Θ(n)");
+
+        scanner.close();
     }
 
     // ========= LINEAR SEARCH METHOD =========
