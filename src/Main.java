@@ -36,14 +36,18 @@ public class Main {
                     System.out.println("1. Selection Sort");
                     System.out.println("2. Bubble Sort");
                     System.out.println("3. Shell Sort");
-                    System.out.println("4. Radix Sort")
-                   
-System.out.println("5. Heap Sort")
-                    System.out.print("Enter your choice (1–5): ");
+                    System.out.println("4. Radix Sort");
+                    System.out.println("5. Heap Sort");
+                    System.out.println("6. Quick Sort");
+                    System.out.println("7. Merge Sort");
+                    System.out.println("8. Counting Sort");
+                    System.out.println("9. Insertion Sort");
+
+                    System.out.print("Enter your choice (1-9): ");
                     sortChoice = scanner.nextInt();
 
                     if (sortChoice < 1 || sortChoice > 5) {
-                        System.out.println("Please enter a number between 1 and 5.");
+                        System.out.println("Please enter a number between 1 and 9.");
                     } else {
                         break;
                     }
@@ -65,6 +69,22 @@ System.out.println("5. Heap Sort")
                     break;
                 case 4:
                     new RadixSort().execute();
+                    break;
+                case 5:
+                    new HeapSort().execute();
+                    break;
+                case 6:
+                    new QuickSort().execute();
+                    break;
+                case 7:
+                    new MergeSort().execute();
+                    break;
+                case 8:
+                    new CountingSort().execute();
+                    break;
+                case 9:
+                    new InsertionSort().execute();
+                    break;
             }
 
             // Step 3: Searching path
@@ -73,30 +93,22 @@ System.out.println("5. Heap Sort")
             System.out.println("1. Binary Search");
             System.out.println("2. Linear Search");
             System.out.print("Press 1 or 2 to proceed: ");
-
-            if (searchChoice == 1) {
-                        new BinarySearchRunner().execute();
+            
+            int searchChoice = -1;
+            while (true) {
+                try {
+                    searchChoice = scanner.nextInt();
+                     if (searchChoice == 1) {
+                        new BinarySearch().execute();
                         break;
                     } else if (searchChoice == 2) {
-                        new LinearSearchRunner().execute();
+                        new LinearSearch().execute();
                         break;
                     } else {
                         System.out.println("Please enter 1 or 2.");
                     }
                 } catch (InputMismatchException e) {
-                    System.out.print("Invalid input. Try again: ");
-                    scanner.next();int searchChoice = -1;
-            while (true) {
-                try {
-                    searchChoice = scanner.nextInt();
-                    if (searchChoice == 1) {
-                        new BinarySearchRunner().execute();
-                        break;
-                    } else {
-                        System.out.print("Invalid input. Press 1 to continue: ");
-                    }
-                } catch (InputMismatchException e) {
-                    System.out.print("Invalid input. Press 1 to continue: ");
+                    System.out.print("Invalid input. Press 1 or 2 to continue: ");
                     scanner.next();
                 }
             }
