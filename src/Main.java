@@ -80,7 +80,7 @@ public class Main {
                     //new MergeSort().execute();
                     break;
                 case 8:
-                    //new CountingSort().execute();
+                    new CountingSort().execute();
                     break;
                 case 9:
                     new InsertionSort().execute();
