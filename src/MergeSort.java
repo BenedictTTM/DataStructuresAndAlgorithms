@@ -1,24 +1,8 @@
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class MergeSort {
 
-    // ========= TEST METHOD =========
-    public static void testMergeSort(int[] arr) {
-        System.out.println("\nMerge Sort Flowchart:");
-        printMergeSortFlowchart();
-
-        System.out.println("\nOriginal Array: " + Arrays.toString(arr));
-        mergeSort(arr.clone(), 0, arr.length - 1);  // Recursive
-        System.out.println("Sorted (Recursive Merge Sort): " + Arrays.toString(arr));
-
-        int[] arr2 = arr.clone();
-        iterativeMergeSort(arr2);  // Iterative
-        System.out.println("Sorted (Iterative Merge Sort): " + Arrays.toString(arr2));
-
-        System.out.println("\nAlgorithm Analysis:\nTime Complexity: Θ(n log n)");
-    }
-
-    // ========= 1. RECURSIVE MERGE SORT =========
+    // Recursive merge sort
     public static void mergeSort(int[] arr, int left, int right) {
         if (left < right) {
             int mid = (left + right) / 2;
@@ -28,21 +12,7 @@ public class MergeSort {
         }
     }
 
-    // ========= 2. ITERATIVE MERGE SORT =========
-    public static void iterativeMergeSort(int[] arr) {
-        int n = arr.length;
-
-        // Start with subarrays of size 1 and double each time
-        for (int currSize = 1; currSize < n; currSize *= 2) {
-            for (int leftStart = 0; leftStart < n - 1; leftStart += 2 * currSize) {
-                int mid = Math.min(leftStart + currSize - 1, n - 1);
-                int rightEnd = Math.min(leftStart + 2 * currSize - 1, n - 1);
-                merge(arr, leftStart, mid, rightEnd);
-            }
-        }
-    }
-
-    // ========= COMMON MERGE METHOD =========
+    // Merge two sorted subarrays
     public static void merge(int[] arr, int left, int mid, int right) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
@@ -67,37 +37,67 @@ public class MergeSort {
         while (j < n2) arr[k++] = R[j++];
     }
 
-    // ========= FLOWCHART =========
-    public static void printMergeSortFlowchart() {
-        System.out.println("""
-         +--------------------+
-         |      Start         |
-         +--------------------+
-                  |
-                  v
-         +-----------------------------+
-         | if left < right             |
-         +-----------------------------+
-                  |
-                  v
-         +-----------------------------+
-         | mid = (left + right) / 2    |
-         +-----------------------------+
-            /              \\
-           v                v
-    +----------------+  +----------------+
-    | mergeSort left |  | mergeSort right|
-    +----------------+  +----------------+
-            \\              /
-             v            v
-         +-----------------------------+
-         |     merge(left, mid, right) |
-         +-----------------------------+
-                  |
-                  v
-         +-----------------------------+
-         |            End              |
-         +-----------------------------+
-        """);
+    // Sorting function to call recursive mergeSort
+    public static void sort(int[] arr) {
+        if (arr.length > 1) {
+            mergeSort(arr, 0, arr.length - 1);
+        }
+    }
+
+    // Utility method to print an array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    // Execute method to run interactively
+    public void execute() {
+        Scanner sc = new Scanner(System.in);
+        int n = 0;
+
+        // Input array size
+        while (true) {
+            try {
+                System.out.print("Enter number of elements: ");
+                n = sc.nextInt();
+                if (n <= 0) {
+                    System.out.println("Please enter a positive integer.");
+                    continue;
+                }
+                break;
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                sc.nextLine(); // clear buffer
+            }
+        }
+
+        int[] arr = new int[n];
+
+        // Input elements
+        for (int i = 0; i < n; i++) {
+            while (true) {
+                try {
+                    System.out.print("Element " + (i + 1) + ": ");
+                    arr[i] = sc.nextInt();
+                    break;
+                } catch (Exception e) {
+                    System.out.println("Invalid input. Please enter an integer.");
+                    sc.nextLine(); // clear buffer
+                }
+            }
+        }
+
+        // Display before sorting
+        System.out.println("\nBefore sorting:");
+        printArray(arr);
+
+        // Sort array
+        sort(arr);
+
+        // Display after sorting
+        System.out.println("\nAfter sorting:");
+        printArray(arr);
     }
 }
