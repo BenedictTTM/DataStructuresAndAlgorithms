@@ -1,9 +1,35 @@
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class QuickSort {
+
+    public void execute() {
+        Scanner scanner = new Scanner(System.in);
+        int choice = -1;
+
+        System.out.println("\n=== QUICK SORT OPTIONS ===");
+        System.out.println("1. Basic Quick Sort");
+        System.out.println("2. Quick Sort (Handles Duplicates)");
+        System.out.print("Enter your choice: ");
+
+        try {
+            choice = scanner.nextInt();
+            if (choice == 1) {
+                new QuickSortBasic().run();
+            } else if (choice == 2) {
+                new QuickSortWithDuplicates().run();
+            } else {
+                System.out.println("Invalid choice. Returning to main menu.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.next(); // clear input
+        }
+    }
+
     static class QuickSortBasic {
-        public void execute() {
+        void run() {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter number of elements: ");
             int n = scanner.nextInt();
@@ -19,7 +45,7 @@ public class QuickSort {
             printFlowchart();
         }
 
-        private void quickSort(int[] arr, int low, int high) {
+        void quickSort(int[] arr, int low, int high) {
             if (low < high) {
                 int pi = partition(arr, low, high);
                 quickSort(arr, low, pi - 1);
@@ -27,7 +53,7 @@ public class QuickSort {
             }
         }
 
-        private int partition(int[] arr, int low, int high) {
+        int partition(int[] arr, int low, int high) {
             int pivot = arr[high];
             int i = low - 1;
             for (int j = low; j < high; j++) {
@@ -40,15 +66,14 @@ public class QuickSort {
             return i + 1;
         }
 
-        private void swap(int[] arr, int i, int j) {
+        void swap(int[] arr, int i, int j) {
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
         }
 
-        private void printFlowchart() {
+        void printFlowchart() {
             System.out.println("""
-                    
                     +------------------------+
                     |      Quick Sort        |
                     +------------------------+
@@ -70,9 +95,8 @@ public class QuickSort {
         }
     }
 
-    // === QuickSort with Duplicates ===
     static class QuickSortWithDuplicates {
-        public void execute() {
+        void run() {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter number of elements (with duplicates): ");
             int n = scanner.nextInt();
@@ -88,7 +112,7 @@ public class QuickSort {
             printFlowchart();
         }
 
-        private void quickSort(int[] arr, int low, int high) {
+        void quickSort(int[] arr, int low, int high) {
             if (low >= high) return;
 
             int pivot = arr[high];
@@ -109,15 +133,14 @@ public class QuickSort {
             quickSort(arr, gt + 1, high);
         }
 
-        private void swap(int[] arr, int i, int j) {
+        void swap(int[] arr, int i, int j) {
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
         }
 
-        private void printFlowchart() {
+        void printFlowchart() {
             System.out.println("""
-                    
                     +--------------------------------+
                     |   Quick Sort with Duplicates   |
                     +--------------------------------+
