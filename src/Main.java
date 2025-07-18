@@ -74,7 +74,7 @@ public class Main {
                     new HeapSort().execute();
                     break;
                 case 6:
-                    //new QuickSort().execute();
+                    new QuickSort().execute();
                     break;
                 case 7:
                     new MergeSort().execute();
