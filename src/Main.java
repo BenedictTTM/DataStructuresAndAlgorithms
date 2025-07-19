@@ -46,7 +46,7 @@ public class Main {
                         System.out.println("1. Selection Sort");
                         System.out.println("2. Bubble Sort");
                         System.out.println("3. Shell Sort");
-                        System.out.println("4. Go Back");
+                        System.out.println("4. Go Back");// to enable the user to go back to the main menu
 
                         // System.out.println("4. Heap Sort");
                         System.out.print("Enter your choice (1–3): ");
