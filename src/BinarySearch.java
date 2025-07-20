@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BinarySearch {
@@ -66,6 +67,12 @@ public class BinarySearch {
             }
         }
 
+        // Sort the array before performing binary search
+        Arrays.sort(A);
+
+        // Display the sorted array
+        System.out.println("Sorted Array: " + Arrays.toString(A));
+
         //Calling the binarySearch method
         int index = binarySearch(A, K);
         if (index == -1) {
@@ -73,7 +80,7 @@ public class BinarySearch {
         } else {
             System.out.println("✅ Found at index: " + index);
         }
-        sc.close();
+        
     }
 }
 
