@@ -5,9 +5,8 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        boolean running = true;
 
-        while (running) {
+        while (true) {  // keep running until user chooses to exit
             int categoryChoice = -1;
 
             // Step 1: Ask Search, Sort, or Exit
@@ -20,10 +19,10 @@ public class Main {
                     System.out.print("Enter your choice (1, 2, or 3): ");
                     categoryChoice = scanner.nextInt();
 
-                    if (categoryChoice < 1 || categoryChoice > 3) {
-                        System.out.println("Please enter 1, 2, or 3.");
-                    } else {
+                    if (categoryChoice >= 1 && categoryChoice <= 3) {
                         break;
+                    } else {
+                        System.out.println("Please enter 1, 2, or 3.");
                     }
                 } catch (InputMismatchException e) {
                     System.out.println("Invalid input. Please enter a number.");
@@ -33,8 +32,7 @@ public class Main {
 
             if (categoryChoice == 3) {
                 System.out.println("Exiting program. Goodbye!");
-                running = false;
-                continue; // exit to end while loop
+                break;  // clean exit from the loop
             }
 
             // Sorting path
@@ -51,7 +49,7 @@ public class Main {
         scanner.close();
     }
 
-    // Method to handle sorting with a back option
+    // Method to handle sorting with back option
     public static void handleSorting(Scanner scanner) {
         while (true) {
             int sortChoice = -1;
@@ -72,41 +70,41 @@ public class Main {
             try {
                 sortChoice = scanner.nextInt();
 
-                if (sortChoice == 10) {
+                if (sortChoice >= 1 && sortChoice <= 9) {
+                    switch (sortChoice) {
+                        case 1:
+                            new SelectionSort().execute();
+                            break;
+                        case 2:
+                            new BubbleSort().execute();
+                            break;
+                        case 3:
+                            new ShellSort().execute();
+                            break;
+                        case 4:
+                            new RadixSort().execute();
+                            break;
+                        case 5:
+                            new HeapSort().execute();
+                            break;
+                        case 6:
+                            new QuickSort().execute();
+                            break;
+                        case 7:
+                            new MergeSort().execute();
+                            break;
+                        case 8:
+                            new CountingSort().execute();
+                            break;
+                        case 9:
+                            new InsertionSort().execute();
+                            break;
+                    }
+                } else if (sortChoice == 10) {
                     System.out.println("Returning to main menu...");
-                    break;
-                }
-
-                switch (sortChoice) {
-                    case 1:
-                        new SelectionSort().execute();
-                        break;
-                    case 2:
-                        new BubbleSort().execute();
-                        break;
-                    case 3:
-                        new ShellSort().execute();
-                        break;
-                    case 4:
-                        new RadixSort().execute();
-                        break;
-                    case 5:
-                        new HeapSort().execute();
-                        break;
-                    case 6:
-                        new QuickSort().execute();
-                        break;
-                    case 7:
-                        new MergeSort().execute();
-                        break;
-                    case 8:
-                        new CountingSort().execute();
-                        break;
-                    case 9:
-                        new InsertionSort().execute();
-                        break;
-                    default:
-                        System.out.println("Please enter a number between 1 and 10.");
+                    break;  // exit sorting loop
+                } else {
+                    System.out.println("Please enter a number between 1 and 10.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
@@ -115,7 +113,7 @@ public class Main {
         }
     }
 
-    // Method to handle searching with a back option
+    // Method to handle searching with back option
     public static void handleSearching(Scanner scanner) {
         while (true) {
             int searchChoice = -1;
@@ -128,20 +126,15 @@ public class Main {
             try {
                 searchChoice = scanner.nextInt();
 
-                if (searchChoice == 3) {
+                if (searchChoice == 1) {
+                    new BinarySearch().execute();
+                } else if (searchChoice == 2) {
+                    new LinearSearch().execute();
+                } else if (searchChoice == 3) {
                     System.out.println("Returning to main menu...");
-                    break;
-                }
-
-                switch (searchChoice) {
-                    case 1:
-                        new BinarySearch().execute();
-                        break;
-                    case 2:
-                        new LinearSearch().execute();
-                        break;
-                    default:
-                        System.out.println("Please enter 1, 2, or 3.");
+                    break;  // exit searching loop
+                } else {
+                    System.out.println("Please enter 1, 2, or 3.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
