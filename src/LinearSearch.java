@@ -57,7 +57,8 @@ public class LinearSearch {
         System.out.println("\nLinear Search Flowchart:");
         printLinearSearchFlowchart();
 
-        System.out.println("\nArray: " + Arrays.toString(arr));
+        Arrays.sort(arr);
+        System.out.println("\nSorted Array: " + Arrays.toString(arr));
         int index = linearSearch(arr, target);
 
         if (index != -1)
@@ -67,7 +68,7 @@ public class LinearSearch {
 
         System.out.println("\nAlgorithm Analysis:\nTime Complexity: Θ(n)");
 
-        scanner.close();
+        //scanner.close();
     }
 
     // ========= LINEAR SEARCH METHOD =========
