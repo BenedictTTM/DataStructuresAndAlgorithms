@@ -80,7 +80,7 @@ public class BinarySearch {
         } else {
             System.out.println("✅ Found at index: " + index);
         }
-        //sc.close();
+        
     }
 }
 

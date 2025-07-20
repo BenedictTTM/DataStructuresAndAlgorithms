@@ -68,7 +68,6 @@ public class LinearSearch {
 
         System.out.println("\nAlgorithm Analysis:\nTime Complexity: Θ(n)");
 
-        //scanner.close();
     }
 
     // ========= LINEAR SEARCH METHOD =========
