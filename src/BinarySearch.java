@@ -10,9 +10,9 @@ public class BinarySearch {
             if (arr[mid] == key) { // Case where the middle value is the same search key
                 return mid;
             } else if (arr[mid] < key) { // Case where middle value < search key
-                low = mid + 1; // Discard values to the right of middle value
+                low = mid + 1; // Discard values to the left of middle value
             } else { // Case where middle value > search key
-                high = mid - 1; // Discard values to the left of middle value
+                high = mid - 1; // Discard values to the right of middle value
             }
         } return -1;
     }
@@ -68,10 +68,10 @@ public class BinarySearch {
         }
 
         // Sort the array before performing binary search
-//        Arrays.sort(A);
+        Arrays.sort(A);
 
         // Display the sorted array
-        System.out.println("Array: " + Arrays.toString(A));
+        System.out.println("Sorted Array: " + Arrays.toString(A));
 
         //Calling the binarySearch method
         int index = binarySearch(A, K);
