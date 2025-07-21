@@ -12,7 +12,7 @@ public class BinarySearch {
             } else if (arr[mid] < key) { // Case where middle value < search key
                 low = mid + 1; // Discard values to the left of middle value
             } else { // Case where middle value > search key
-                high = mid - 1; // Discard values to the right of middle value
+                high = mid - 1; // Discard values to the right of middle value.
             }
         } return -1;
     }

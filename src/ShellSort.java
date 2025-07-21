@@ -81,7 +81,7 @@ public class ShellSort {
     | **Case**    | **Time Complexity** | **Explanation**                                    |
 | ----------- | ------------------- | -------------------------------------------------- |
 | **Best**    | **O(n log n)**      | Case where array is nearly sorted.                         |
-| **Average** | **O(n (log n)²)**   | Heavily depends on the gap sequence.               |
+| **Average** | **O(n (log n)²)**   | Heavily dependent on the gap sequence.               |
 | **Worst**   | **O(n²)**           | Happens with poor gap sequence or bad input order. |
 
 */
