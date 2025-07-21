@@ -68,21 +68,30 @@ public class BinarySearch {
         }
 
         // Sort the array before performing binary search
-        Arrays.sort(A);
+//        Arrays.sort(A);
 
         // Display the sorted array
-        System.out.println("Sorted Array: " + Arrays.toString(A));
+        System.out.println("Array: " + Arrays.toString(A));
 
         //Calling the binarySearch method
         int index = binarySearch(A, K);
-        if (index == -1) {
-            System.out.println("Index: " + index + "❌ Not found.");
+        if (index != -1) {
+            System.out.println("✅ Found at index:  " + index);
         } else {
-            System.out.println("✅ Found at index: " + index);
+            System.out.println(" Index: " + index + " ❌ Not found.");
         }
         
     }
 }
+
+/*
+    | **Case**    | **Time Complexity** | **Explanation**                              |
+| ----------- | ------------------- | -------------------------------------------- |
+| **Best**    | **O(1)**            | Target is in the middle on the first check.  |
+| **Average** | **O(log n)**        | Each step halves the search space.           |
+| **Worst**   | **O(log n)**        | Target found at the end or not found at all. |
+
+*/
 
 /*
 Start
