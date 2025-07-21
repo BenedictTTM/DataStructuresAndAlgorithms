@@ -1,25 +1,29 @@
+package algorithms;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class BubbleSort {
-    
+public class InsertionSort {
+
     public void sort(int[] arr) {
         int n = arr.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+
+            // Move elements of arr[0..i-1] that are greater than key
+            // to one position ahead of their current position
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
             }
+            arr[j + 1] = key;
         }
     }
 
     public void execute() {
         Scanner scanner = new Scanner(System.in);
-        
+
         // Get array size
         int n = 0;
         while (true) {
@@ -53,49 +57,54 @@ public class BubbleSort {
 
         // Execute sorting and display results
         test(arr.clone());
-        
+
         // Note: Not closing scanner as it uses System.in which should remain open
     }
 
     public void test(int[] arr) {
-        System.out.println("\nBubble Sort Flowchart:");
+        System.out.println("\nInsertion Sort Flowchart:");
         printFlowchart();
 
         System.out.println("\nOriginal Array: " + Arrays.toString(arr));
         sort(arr);
-        System.out.println("Sorted Array (Bubble Sort): " + Arrays.toString(arr));
+        System.out.println("Sorted Array (Insertion Sort): " + Arrays.toString(arr));
 
         System.out.println("\nAlgorithm Analysis:");
-        System.out.println("Time Complexity: Θ(n²)");
+        System.out.println("Time Complexity: Θ(n²) in worst case, Θ(n) in best case (already sorted)");
     }
 
     public void printFlowchart() {
         System.out.println("""
-         +-------------------+
-         |      Start        |
-         +-------------------+
-                 |
-                 v
+         +--------------------+
+         |      Start         |
+         +--------------------+
+                  |
+                  v
          +-----------------------------+
-         | for i = 0 to n - 1          |
+         | for i = 1 to n - 1          |
          +-----------------------------+
-                 |
-                 v
+                  |
+                  v
          +-----------------------------+
-         | for j = 0 to n - i - 2      |
+         | key = arr[i], j = i - 1     |
          +-----------------------------+
-                 |
-                 v
+                  |
+                  v
          +-----------------------------+
-         | if arr[j] > arr[j+1]        |
+         | while j >= 0 and arr[j] > key|
          +-----------------------------+
-             Yes | No
-                 v
+                  |
+                  v
          +-----------------------------+
-         | Swap arr[j] and arr[j+1]    |
+         | arr[j+1] = arr[j], j--       |
          +-----------------------------+
-                 |
-                 v
+                  |
+                  v
+         +-----------------------------+
+         | arr[j+1] = key               |
+         +-----------------------------+
+                  |
+                  v
          +-----------------------------+
          |            End              |
          +-----------------------------+
