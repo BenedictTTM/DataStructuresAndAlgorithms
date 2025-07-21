@@ -10,9 +10,9 @@ public class BinarySearch {
             if (arr[mid] == key) { // Case where the middle value is the same search key
                 return mid;
             } else if (arr[mid] < key) { // Case where middle value < search key
-                low = mid + 1; // Discard values to the right of middle value
+                low = mid + 1; // Discard values to the left of middle value
             } else { // Case where middle value > search key
-                high = mid - 1; // Discard values to the left of middle value
+                high = mid - 1; // Discard values to the right of middle value.
             }
         } return -1;
     }
@@ -75,14 +75,23 @@ public class BinarySearch {
 
         //Calling the binarySearch method
         int index = binarySearch(A, K);
-        if (index == -1) {
-            System.out.println("Index: " + index + "❌ Not found.");
+        if (index != -1) {
+            System.out.println("✅ Found at index:  " + index);
         } else {
-            System.out.println("✅ Found at index: " + index);
+            System.out.println(" Index: " + index + " ❌ Not found.");
         }
         
     }
 }
+
+/*
+    | **Case**    | **Time Complexity** | **Explanation**                              |
+| ----------- | ------------------- | -------------------------------------------- |
+| **Best**    | **O(1)**            | Target is in the middle on the first check.  |
+| **Average** | **O(log n)**        | Each step halves the search space.           |
+| **Worst**   | **O(log n)**        | Target found at the end or not found at all. |
+
+*/
 
 /*
 Start
